@@ -1,0 +1,38 @@
+## 数据源配置
+spring:
+ datasource:
+   type: com.mchange.v2.c3p0.ComboPooledDataSource
+   driver-class-name: com.mysql.cj.jdbc.Driver
+   url: jdbc:mysql://192.168.159.130:3306/crm?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+   username: root
+   password: Root123456.
+
+## freemarker
+ freemarker:
+  suffix: .ftl
+  content-type: text/html
+  charset: UTF-8
+  template-loader-path: classpath:/views/
+## 启用热部署
+ devtools:
+  restart:
+    enabled: true
+    additional-paths: src/main/java
+ main:
+    allow-circular-references: true
+## mybatis 配置
+mybatis:
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: com.xxxx.crm.vo;com.xxxx.crm.query;com.xxxx.crm.dto
+  configuration:
+    map-underscore-to-camel-case: true
+## pageHelper
+pagehelper:
+  helper-dialect: mysql
+## 设置 dao 日志打印级别
+logging:
+  level:
+    com:
+      xxxx:
+        crm:
+          dao: debug
